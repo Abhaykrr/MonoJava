@@ -11,7 +11,7 @@ public class NumberGuessApplication {
 		
 		while(true) {
 			
-			System.out.println("Generating Number");
+			System.out.println("Generating Number ...");
 			int randomNumber = (int)(100*Math.random());
 			
 			System.out.println("Number Generated : "+randomNumber+" Visible For Testing purpose");
@@ -25,13 +25,13 @@ public class NumberGuessApplication {
 				int guess = scanner.nextInt();
 				
 				if(guess == randomNumber) {
-					System.out.println("Congrats you won the game ");
+					System.out.println("Congrats you won the game in  " +(10-chanceLeft) +" chances");
 					break;
 				}
 				else if(guess < randomNumber)
-					System.out.println("Your guess is less than the Random Number");
+					System.out.println("Your guess is too low than the Random Number");
 				else
-					System.out.println("Your guess is greater than the Random Number");
+					System.out.println("Your guess is too high than the Random Number");
 				
 				if(chanceLeft==0) 
 					System.out.println("You Loose");
