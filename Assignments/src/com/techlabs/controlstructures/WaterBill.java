@@ -1,11 +1,10 @@
-package com.techlabs.acceptinput;
+package com.techlabs.controlstructures;
 
 import java.util.Scanner;
 
 public class WaterBill {
 
 	public static void main(String[] args) {
-		
 		Scanner scanner = new Scanner(System.in);
 		
 		System.out.println("Enter units consumed");
