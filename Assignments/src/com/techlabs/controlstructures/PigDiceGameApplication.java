@@ -11,13 +11,14 @@ public class PigDiceGameApplication {
 		int currTurnScore = 0;
 		
 		while(true) {
-			int random  = generateRandom();
 			
 			System.out.println("Roll (r) or Hold (h)");	
 			
 			String decision = scanner.next();
 			
 			if(decision.equalsIgnoreCase("r")) {
+				
+				int random  = generateRandom();
 				
 				if(random == 1 ) {
 					System.out.println("Die : " +random);
