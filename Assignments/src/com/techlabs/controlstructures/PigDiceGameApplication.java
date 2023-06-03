@@ -3,6 +3,8 @@ package com.techlabs.controlstructures;
 import java.io.IOException;
 import java.util.Scanner;
 
+// Sample I/O at bottom
+
 public class PigDiceGameApplication {
 
 	public static void main(String[] args) throws IOException {
@@ -79,3 +81,64 @@ class PigGame{
 	static int score = 0;
 	static int turn = 0;
 }
+
+/*------Turn 1 ------
+Roll (r) or Hold (h)
+r
+Die : 1
+Turn over       : No Score
+Total Score     : 0
+
+------Turn 2------
+Roll (r) or Hold (h)
+r
+Die :4 Current Turn Score : 4
+Roll (r) or Hold (h)
+r
+Die :2 Current Turn Score : 6
+Roll (r) or Hold (h)
+r
+Die :2 Current Turn Score : 8
+Roll (r) or Hold (h)
+r
+Die : 1
+Turn over       : No Score
+Total Score     : 0
+
+------Turn 3------
+Roll (r) or Hold (h)
+r
+Die :4 Current Turn Score : 4
+Roll (r) or Hold (h)
+r
+Die :4 Current Turn Score : 8
+Roll (r) or Hold (h)
+r
+Die :4 Current Turn Score : 12
+Roll (r) or Hold (h)
+r
+Die :4 Current Turn Score : 16
+Roll (r) or Hold (h)
+h
+Score for turn  : 16
+Total Score     : 16
+
+------Turn 4------
+Roll (r) or Hold (h)
+r
+Die : 1
+Turn over       : No Score
+Total Score     : 16
+
+------Turn 5------
+Roll (r) or Hold (h)
+r
+Die :2 Current Turn Score : 2
+Roll (r) or Hold (h)
+r
+Die :4 Current Turn Score : 6
+Score for turn  : 6
+Total Score     : 22
+
+You finished in : 5 Turns
+*/

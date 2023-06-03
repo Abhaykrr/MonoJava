@@ -3,6 +3,7 @@ package com.techlabs.streams;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 
@@ -11,13 +12,16 @@ public class CopyPasteByScanner {
 	public static void main(String[] args) throws IOException {
 		
 		
-		Scanner f = new Scanner(new File("D:/Monocept/file1.txt"));
-	    FileOutputStream fos = new FileOutputStream("D:/Monocept/file2.txt");
+		Scanner scanner = new Scanner(new File("D:/Monocept/file1.txt"));
+		FileWriter writer = new FileWriter(new File("D:/Monocept/file2.txt"));
 		
-		while(f.hasNext()) {
-			System.out.println(f.nextLine());
-			
-		}
+		
+		 while (scanner.hasNextLine()) {
+//              String line = scanner.nextLine();
+              writer.write(scanner.nextLine().getBytes());
+             }
+		
+		
 		
 	}
 

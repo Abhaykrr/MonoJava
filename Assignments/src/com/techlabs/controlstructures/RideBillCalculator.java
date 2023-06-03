@@ -37,9 +37,6 @@ public class RideBillCalculator {
 		    else
 		    	System.out.println("Total Bill without photos: " +(costOfRide)+"$");
 		    	
-		    	
-		    
-			
 		}else {
 			System.out.println("Cant Ride");
 		}

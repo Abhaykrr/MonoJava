@@ -19,6 +19,11 @@ public class BookCricketGame {
 			
 			if(cricketGame.scoreA >=winScore && cricketGame.scoreB >=winScore) {
 				System.out.println("Tie Happened");
+				if(cricketGame.turnA>cricketGame.turnB) 
+					System.out.println("A wins");
+				else
+					System.out.println("B Wins");
+				
 				System.exit(0);
 			}else if(cricketGame.scoreA>=winScore) {
 				System.out.println("Player A Wins");

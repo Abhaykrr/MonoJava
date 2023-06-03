@@ -18,27 +18,28 @@ public class CountLinesWordsChars {
 
 	
 		int ch;
-		
-		int charCount =0;
+		int charCount  =0;
 		int wordsCount =0;
-		int lineCount =0;
+		int lineCount  =0;
 		
 
-		
+		char last = ' ';
 		
 		while((ch = fileInputStream.read()) != -1) {
 			
-			if((char)ch=='\n') lineCount++;
-			
-			if((char)ch=='\t' ||(char)ch==' ') charCount++;
+//			if((char)ch=='\n') lineCount++;
+//			
+//			if((char)ch=='\t' ||(char)ch==' ') charCount++;
 			System.out.print((char)ch);
 			
 			
-			if((char)ch==' ') wordsCount++;
+			if((char)ch==' ' && last !=' ') wordsCount++;
 			
-			
+			last = (char)ch;
 			
 		}
+		
+		if(last !=' ') wordsCount++;
 		
 		
 		System.out.println();
