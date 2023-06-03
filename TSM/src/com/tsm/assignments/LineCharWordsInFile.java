@@ -1,0 +1,54 @@
+package com.tsm.assignments;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.Scanner;
+
+public class LineCharWordsInFile {
+
+	public static void main(String[] args) throws IOException {
+		
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("Enter File Name");
+		String fileName = scanner.next();
+	    
+		FileInputStream fileInputStream = new FileInputStream(new File("D:/Monocept/tsm/"+fileName));
+
+	
+		int ch;
+		int charCount  =0;
+		int wordsCount =0;
+		int lineCount  =1;
+		
+
+		char last = ' ';
+		
+		while((ch = fileInputStream.read()) != -1) {
+			
+			System.out.print((char)ch);
+			
+			if((char)ch=='\n') lineCount++;
+			
+			if((char)ch!=' ') charCount++;
+			
+			if((char)ch==' ' && last !=' ') wordsCount++;
+			
+			last = (char)ch;
+			
+		}
+		
+		if(last !=' ') wordsCount++;
+		
+		
+		System.out.println();
+		System.out.println("Characters  : " +charCount);
+		System.out.println("Words       : " +wordsCount);
+		System.out.println("Lines       : " +lineCount);
+		
+		fileInputStream.close();
+		scanner.close();
+
+	}
+
+}
+

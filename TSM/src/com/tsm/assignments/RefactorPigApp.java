@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 		public static void main(String[] args) {
 			
-			System.out.println("      Turn : "+ (PigGame.turn+1));
+			System.out.println("      Turn : "+ (PigiGame.turn+1));
 			
 			while(true) {
 				System.out.print("Roll or hold? (r/h): ");
@@ -24,7 +24,7 @@ import java.util.Scanner;
 
 		public static void roll() {
 			
-	        int randomNumber = PigGame.generateRandom();
+	        int randomNumber = PigiGame.generateRandom();
 	        if(randomNumber == 1) {
 	        	score = 0;
 	        	 System.out.println("Die : " +randomNumber);
@@ -32,7 +32,7 @@ import java.util.Scanner;
 	        }else {
 	        score += randomNumber;
 	        
-	        if(score+PigGame.score>=PigGame.gameScore) {
+	        if(score+PigiGame.score>=PigiGame.gameScore) {
 	        	System.out.println("Die : " +randomNumber +" Turn Score : " +score);
 	        	hold();
 	        	System.exit(0);
@@ -44,23 +44,23 @@ import java.util.Scanner;
 		}
 
 		public static void hold() {
-			PigGame.score += score;
-			PigGame.turn++;
+			PigiGame.score += score;
+			PigiGame.turn++;
 			System.out.println("- - - - - - - - - - - ");
 			System.out.println("| Score for turn  : "+ score +"|");
-			System.out.println("| Total Score     : " +(PigGame.score)+"|");
+			System.out.println("| Total Score     : " +(PigiGame.score)+"|");
 			System.out.println("- - - - - - - - - - -  \n");
-			if(PigGame.score >= 20) {
-				System.out.println("   You Won in " +PigGame.turn+ " turns");
+			if(PigiGame.score >= 20) {
+				System.out.println("   You Won in " +PigiGame.turn+ " turns");
 				System.exit(0);
 			}else {
-				System.out.println("      Turn : "+ (PigGame.turn+1));
+				System.out.println("      Turn : "+ (PigiGame.turn+1));
 			}
 			score = 0;
 		}
 	}
 
-	class PigGame{
+	class PigiGame{
 
 		static int gameScore =20;
 		static int score = 0;
