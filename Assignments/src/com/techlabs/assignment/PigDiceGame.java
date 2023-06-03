@@ -1,6 +1,8 @@
 package com.techlabs.assignment;
 import java.util.Scanner;
 
+
+//Sample I/O at bottom
 public class PigDiceGame {
 	
 	public static Scanner scanner = new Scanner(System.in);
@@ -69,7 +71,47 @@ class PigGame{
 	}
 }
 
-///*	
-//	*/
+/*	
+			      Turn : 1
+		Roll or hold? (r/h): r
+		Die : 5 Turn Score : 5
+		Roll or hold? (r/h): r
+		Die : 4 Turn Score : 9
+		Roll or hold? (r/h): r
+		Die : 2 Turn Score : 11
+		Roll or hold? (r/h): r
+		Die : 2 Turn Score : 13
+		Roll or hold? (r/h): r
+		Die : 1
+		- - - - - - - - - - - 
+		| Score for turn  : 0|
+		| Total Score     : 0|
+		- - - - - - - - - - -  
+		
+		      Turn : 2
+		Roll or hold? (r/h): r
+		Die : 6 Turn Score : 6
+		Roll or hold? (r/h): r
+		Die : 3 Turn Score : 9
+		Roll or hold? (r/h): r
+		Die : 3 Turn Score : 12
+		Roll or hold? (r/h): h
+		- - - - - - - - - - - 
+		| Score for turn  : 12|
+		| Total Score     : 12|
+		- - - - - - - - - - -  
+		
+		      Turn : 3
+		Roll or hold? (r/h): r
+		Die : 2 Turn Score : 2
+		Roll or hold? (r/h): r
+		Die : 6 Turn Score : 8
+		- - - - - - - - - - - 
+		| Score for turn  : 8|
+		| Total Score     : 20|
+		- - - - - - - - - - -  
+		
+		   You Won in 3 turns
 
+*/
 
