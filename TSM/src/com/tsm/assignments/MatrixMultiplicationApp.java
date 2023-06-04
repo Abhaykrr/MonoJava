@@ -1,6 +1,8 @@
 package com.tsm.assignments;
 import java.util.Scanner;
 
+
+// Sample I/O at bottom
 	public class MatrixMultiplicationApp {
 
 		public static void main(String[] args) {
@@ -62,4 +64,27 @@ import java.util.Scanner;
 		}
 
 	}
-
+/*
+	Enter column and row of matrixA
+	2 3
+	Enter column and row of matrixB
+	3 2
+	Enter Matrix A
+	1 2 3
+	4 5 6
+	Enter Matrix B
+	1 2
+	2 3
+	3 4
+	Product of Matrix A & Matrix B
+	14 20 
+	32 47 
+	
+	
+	Enter column and row of matrixA
+	2 3
+	Enter column and row of matrixB
+	2 3
+	2*3 X 2*3 Multiplication Not Possible
+	
+	*/

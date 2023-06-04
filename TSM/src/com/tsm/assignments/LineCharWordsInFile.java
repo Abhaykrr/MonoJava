@@ -4,6 +4,16 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Scanner;
 
+/*
+Enter File Name
+Demo.txt
+Hi i Am          abhay
+GoodMorning
+
+Characters  : 23
+Words       : 4
+Lines       : 2
+*/
 public class LineCharWordsInFile {
 
 	public static void main(String[] args) throws IOException {
@@ -22,7 +32,7 @@ public class LineCharWordsInFile {
 		
 
 		char last = ' ';
-		
+		System.out.println("File Content :"+"\n");
 		while((ch = fileInputStream.read()) != -1) {
 			
 			System.out.print((char)ch);
@@ -40,7 +50,7 @@ public class LineCharWordsInFile {
 		if(last !=' ') wordsCount++;
 		
 		
-		System.out.println();
+		System.out.println("\n");
 		System.out.println("Characters  : " +charCount);
 		System.out.println("Words       : " +wordsCount);
 		System.out.println("Lines       : " +lineCount);

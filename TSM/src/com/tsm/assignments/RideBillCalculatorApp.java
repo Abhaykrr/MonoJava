@@ -1,6 +1,7 @@
 package com.tsm.assignments;
 import java.util.Scanner;
 
+// Sample I/O at bottom
 public class RideBillCalculatorApp {
 
 	public static void main(String[] args) {
@@ -45,4 +46,18 @@ public class RideBillCalculatorApp {
 		}
 
 	}
+/*
+	Enter your Height
+	130
+	Enter your age
+	22
+	Want Photos Yes or No
+	yes
+	Total Bill with photos : 15$
+	
+	Enter your Height
+	110
+	Cant Ride
+
+*/
 
