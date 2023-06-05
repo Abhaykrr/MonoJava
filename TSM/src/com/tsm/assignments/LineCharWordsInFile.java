@@ -4,16 +4,6 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Scanner;
 
-/*
-Enter File Name
-Demo.txt
-Hi i Am          abhay
-GoodMorning
-
-Characters  : 23
-Words       : 4
-Lines       : 2
-*/
 public class LineCharWordsInFile {
 
 	public static void main(String[] args) throws IOException {
