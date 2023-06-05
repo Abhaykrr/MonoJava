@@ -1,7 +1,5 @@
 package com.tsm.emailValidation;
 
-import java.util.Arrays;
-import java.util.Comparator;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -21,12 +19,8 @@ public class CustomerManage {
 		displayCustomer(customers);
 	}
 	
-
-
   public static void getCustomerDetails(Scanner scanner, Customer[] customers) {
 	   
-	    
-		
 		   int customerId ;
 	       scanner.nextLine(); 
 	       String name ;
@@ -69,3 +63,48 @@ public class CustomerManage {
    }
 
 }
+/*
+Enter total no of customers :
+3
+Enter Customer details in format 
+CustomerID , CustomerName , Mail & Password
+101
+ak
+ak@gmail.com
+123
+Enter Customer details in format 
+CustomerID , CustomerName , Mail & Password
+201
+dk
+dkgmail.com
+123
+Enter Customer details in format 
+CustomerID , CustomerName , Mail & Password
+301
+bk
+bk@yahoo.com
+123
+---------------------------------
+Customer Information
+---------------------------------
+Customer ID     : 101
+Name            : ak
+Email           : ak@gmail.com
+Password        : 123
+---------------------------------
+
+---------------------------------
+Customer ID     : 201
+Name            : dk
+Email           : Format incorrect
+Password        : 123
+---------------------------------
+
+---------------------------------
+Customer ID     : 301
+Name            : bk
+Email           : bk@yahoo.com
+Password        : 123
+---------------------------------
+
+*/
