@@ -62,6 +62,14 @@ public class Account {
 		else balance -=amount;
 		
 	}
+
+	@Override
+	public String toString() {
+		return "Account [accountNo=" + accountNo + ", name=" + name + ", accountType=" + accountType + ", balance="
+				+ balance + "]";
+	}
+	
+	
 	
 	
 	

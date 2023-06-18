@@ -6,7 +6,7 @@ public class LineItemTest {
 
 	public static void main(String[] args) {
 		
-		Product Apple = new Product(101,"Apple",20.0,0.0);
+		Product Apple = new Product(101,"Apple",20.0,8.0);
 		Product Lays = new Product(201,"Lays",30.0,5.0);
 		Product Mouse = new Product(301,"Mouse",200.0,20.0);
 		Product Keyboard = new Product(401,"KeyBoard",300.0,14.0);
@@ -22,6 +22,8 @@ public class LineItemTest {
 				
 				));
 		
+		Order order =  new Order(1,new Date(2023,18,6),shoppingkart);
+		
 		System.out.println("+----+--------------+----------+----------+----------+----------+");
 		System.out.println("| ID |     Name     | Quantity |  Price   | Discount |  Total   |");
 		System.out.println("+----+--------------+----------+----------+----------+----------+");
@@ -30,13 +32,23 @@ public class LineItemTest {
 		            item.getId(), item.getProduct().getName(), item.getQuantity(), item.getProduct().getPrice(), item.getProduct().getDiscountPercent(), item.calculateLineItemCost());
 		}
 		System.out.println("+----+--------------+----------+----------+----------+----------+");
-		System.out.println("|    |              |          |          |Net Total |  $%-7.2f |",);
+		System.out.printf("|    |              |          |          |Net Total |  $%-7.2f |\n",order.calculateOrderPrice());
 		System.out.println("+----+--------------+----------+----------+----------+----------+");
-			
 		
-		
-		
-
 	}
 
 }
+
+/*
+ * +----+--------------+----------+----------+----------+----------+
+| ID |     Name     | Quantity |  Price   | Discount |  Total   |
++----+--------------+----------+----------+----------+----------+
+| 1  | Apple        | 2        | $20.00   | $8.00    | $36.80   |
+| 2  | Lays         | 1        | $30.00   | $5.00    | $28.50   |
+| 3  | Mouse        | 3        | $200.00  | $20.00   | $480.00  |
+| 4  | KeyBoard     | 4        | $300.00  | $14.00   | $1032.00 |
+| 5  | AuxCable     | 1        | $50.00   | $8.00    | $46.00   |
++----+--------------+----------+----------+----------+----------+
+|    |              |          |          |Net Total |  $1623.30 |
++----+--------------+----------+----------+----------+----------+
+*/

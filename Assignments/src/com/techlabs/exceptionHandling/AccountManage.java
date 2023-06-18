@@ -25,6 +25,8 @@ public class AccountManage {
 			System.exit(0);
 		}
 		
+		System.out.println(account);
+		
 		while(true) {
 			System.out.println();
 			System.out.println("Press 1 for Deposit");
