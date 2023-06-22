@@ -36,6 +36,7 @@ public class Cell {
 				
 			}
 		}
+		
 		catch(CellAlreadyMarkedException e) {
 			System.out.println(e.getMessage());
 		}
