@@ -26,11 +26,12 @@ try {
      user1.deleteContact("c")
 
      user1.addContactInfo("a","Home",98989)
-    //  user1.addContactInfo("a","Home",98989) will show already exists
-     user1.addContactInfo("a","Tele",98989)
+     user1.addContactInfo("a","Telephone",98989)
      user1.addContactInfo("a","Mobile",98989)
+     
+     user1.updateContactInfo("a","Mobile",909090)
 
-     user1.deleteContactInfo("a","Tele")
+     user1.deleteContactInfo("a","Telephone")
      
 
      console.log(user1);

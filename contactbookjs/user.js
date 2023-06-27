@@ -15,6 +15,11 @@ class User {
          throw new Error("Enter type of String Only");
     }
 
+    static properNumberFormat(data){
+        if(typeof data != "number")
+         throw new Error("Enter type of Number Only");
+    }
+
     static findUser(username) {
         //type validation
         this.properStringFormat(username);
@@ -204,6 +209,7 @@ class User {
 
         User.properStringFormat(cName)
         User.properStringFormat(type)
+        User.properNumberFormat(value)
 
         if (this.isAdmin){
             throw new Error("Admin Cannot Add Contact Info")
@@ -243,6 +249,30 @@ class User {
         }
 
         this.contacts[indexOfContact].contactInfos.splice(indexOfContactType,1)
+    }
+
+
+    updateContactInfo(cName, type, value ){
+
+        User.properStringFormat(cName)
+        User.properStringFormat(type)
+        User.properNumberFormat(value)
+
+        if (this.isAdmin){
+            throw new Error("Admin Cannot Add Contact Info")
+        }
+
+        let [isContactExist, indexOfContact] = this.findContact(cName)
+        if (!isContactExist) {
+            throw new Error("Contact Does Not Exist")
+        }
+
+        let [isContactTypeExist, indexOfContactType] = this.getContactInfo(type, indexOfContact )
+        if (!isContactTypeExist) {
+            throw new Error("ContactType Doesnt Exist")
+        }
+
+        this.contacts[indexOfContact].contactInfos[indexOfContactType].value = value;
     }
 
 
