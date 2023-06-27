@@ -6,15 +6,15 @@ public class Board {
 	
 	public Board() {
 		for(int i=0;i<9;i++)
-				cell[i]=new Cell();
+		cell[i]=new Cell();
 	}
 	
 	public boolean isBoardFull() {
 		
 		int count = 0;
 		
-		for(int i=0;i<9;i++)
-				if(cell[i].getMark() != MarkType.EMPTY) count++;
+	    for(int i=0;i<9;i++)
+		if(cell[i].getMark() != MarkType.EMPTY) count++;
 		
 		if(count == 9 ) return true;
 		return false;
@@ -28,10 +28,8 @@ public class Board {
 		
 		  int[][] winningConditions = {
 		            {0, 1, 2}, {3, 4, 5}, {6, 7, 8}, // Rows
-		            
 		            {0, 3, 6}, {1, 4, 7}, {2, 5, 8}, // Columns
-		            
-		            {0, 4, 8}, {2, 4, 6}              // Diagonals
+		            {0, 4, 8}, {2, 4, 6}             // Diagonals
 		    };
 		
 		for(int [] conditions  :winningConditions) {
@@ -42,7 +40,7 @@ public class Board {
 			}
 		}
 										
-			return null;
+			return MarkType.EMPTY;
 	}
 	
 	

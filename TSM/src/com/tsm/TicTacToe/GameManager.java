@@ -7,8 +7,7 @@ import java.util.Scanner;
 public class GameManager {
 	
 	static Scanner scanner = new Scanner(System.in);
-	static boolean isPlayer1 = true;
-	static boolean isPlayer2 = false;
+	
 
 	public static void main(String[] args) {
 		
@@ -18,49 +17,36 @@ public class GameManager {
 	}
 	
 	public static void startGame(Board board) {
+		printBoard(board); // Empty Board
 		
 		while(true) {
-			display(board);
-			MarkType mark = board.checkWin();
 			
-			status(mark,board);
-		}
-	}
-	
-	private static void status(MarkType mark,Board board) {
-		
-		if(mark == MarkType.O) {
+			getPlayerInput(board);
+			
 			printBoard(board);
-			System.out.println("\tPlayer 2 (O) Wins");
-			System.exit(0);
-		}else if( mark == MarkType.X) {
-			printBoard(board);
-			System.out.println("\tPlayer 1 (X) Wins");
-			System.exit(0);
-		}else if(board.isBoardFull()){
-			printBoard(board);
-			System.out.println("\tTie ");
-			System.exit(0);
+			
+			ResultAnalyser.status(board.checkWin(),board);
 		}
 	}
 
-	public static void display(Board board) {
-		
-		printBoard(board);
-		displayTurn();
+
+	public static void getPlayerInput(Board board) {
+		Player.displayTurn();
 		System.out.print("\nChoose Your Location From (1-9) : ");
 		int location = scanner.nextInt();
 		
-		if(location >0 && location <10) {
-			
-			if( isPlayer1) 
-				board.cell[location-1].setMark(MarkType.X);
-			else if( isPlayer2) 
-				board.cell[location-1].setMark(MarkType.O);
-				
-		}else {
-			System.out.println("\tEnter Valid Loaction");
+		try {
+			if(location<1 || location >9) throw new InvalidLocationException(location);
+		}catch(InvalidLocationException e) {
+			System.out.println(e.getMessage());
+			return;
 		}
+		
+			if( Player.isPlayer1) 
+				board.cell[location-1].setMark(Player.choicePlayer1);
+			else if( Player.isPlayer2) 
+				board.cell[location-1].setMark(Player.choicePlayer2);
+			
 		
 		System.out.println("---------------------------------");
 		
@@ -85,10 +71,7 @@ public class GameManager {
 	    }
 	}
 	
-	public static void displayTurn() {
-		if(isPlayer1) System.out.println("\n      Turn : Player 1 (X)");
-		if(isPlayer2) System.out.println("\n      Turn : Player 2 (O)");
-	}
+	
 
 }
 

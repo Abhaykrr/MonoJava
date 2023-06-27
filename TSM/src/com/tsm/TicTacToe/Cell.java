@@ -24,16 +24,7 @@ public class Cell {
 				throw new CellAlreadyMarkedException(this.mark);
 			else {
 				this.mark = mark;
-				
-				if(GameManager.isPlayer1 ==true ) {
-					GameManager.isPlayer1=false;
-					GameManager.isPlayer2=true;
-				}
-				else if(GameManager.isPlayer2) {
-					GameManager.isPlayer2 = false;
-					GameManager.isPlayer1 = true;
-				}
-				
+				Player.switchPlayer();
 			}
 		}
 		
