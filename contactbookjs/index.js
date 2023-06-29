@@ -1,7 +1,7 @@
 //Driver Code
 
 
-const User = require("./User");
+const User = require("./user");
 
 try {
     const admin1 = User.newAdmin("Abhay", "ak123")
