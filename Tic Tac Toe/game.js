@@ -12,6 +12,9 @@ class Game{
 
     static newGame(player0Name,player1Name){
 
+        if(typeof player0Name !="string" && typeof player1Name !="string")
+            throw new Error("Enter Valid Name")
+
         const players = [ Player.newPlayer(player0Name,"X"),
                              Player.newPlayer(player1Name,"O")]
 
@@ -62,7 +65,7 @@ class Game{
 
 
        
-               console.log(state);
+               console.log("Game in ",state ,"State");
                console.log("Turn : ",this.turn+1, ` ${currPlayer.name}`);
                this.turn ++;
 

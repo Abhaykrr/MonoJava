@@ -8,13 +8,7 @@ class Player{
         return new Player(name,symbol)
     }
 
-    markCell(cellNo){
-
-        this.board.cells[cellNo].mark = symbol
-
-    }
-
-   
+ 
 }
 
 module.exports = Player

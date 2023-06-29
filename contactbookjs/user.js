@@ -7,6 +7,7 @@ class User {
         this.name = name
         this.username = username
         this.isAdmin = isAdmin
+        this.isStaff = !isAdmin
         this.contacts = []
     }
 
@@ -21,7 +22,6 @@ class User {
     }
 
     static findUser(username) {
-        //type validation
         this.properStringFormat(username);
 
         for (let index = 0; index < User.allUser.length; index++) {
@@ -34,7 +34,6 @@ class User {
    
 
     static newAdmin(name, username) {
-        //type validation - name -username
        
         this.properStringFormat(name);
         this.properStringFormat(username);
@@ -48,12 +47,10 @@ class User {
         return admin
     }
     newUser(name, username) {
-        //type validation - name -username
         User.properStringFormat(name);
         User.properStringFormat(username);
         
 
-        //check
         if (!this.isAdmin) {
             throw new Error("Unauthorized")
         }
@@ -74,8 +71,6 @@ class User {
     }
 
     updateUser(username, parameter, newValue) {
-        //type validation - name -username
-        //check
 
         User.properStringFormat(username);
         User.properStringFormat(newValue);
@@ -139,10 +134,8 @@ class User {
 
     }
     newContact(cName) {
-        //check cname is string
         User.properStringFormat(cName);
 
-        //check not admin
         if (this.isAdmin){
             throw new Error("Admin Cannot Create Contacts")
         }
