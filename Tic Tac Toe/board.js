@@ -17,7 +17,7 @@ class Board{
         return new Board(cells)
     }
 
-    analyseResult(board){
+    analyseResult(){
 
        
 
@@ -32,13 +32,13 @@ class Board{
             let b = conditions[1];
             let c = conditions[2];
     
-            if (board.cells[a].mark == board.cells[b].mark && board.cells[a].mark == board.cells[c].mark  && board.cells[a].mark!="z") {
-                return [board.cells[a].mark,"win"];
+            if (this.cells[a].mark == this.cells[b].mark && this.cells[a].mark == this.cells[c].mark  && this.cells[a].mark!="z") {
+                return [this.cells[a].mark,"win"];
             }
         }
 
         for (let index = 0; index < 9; index++) {
-            if(board.cells[index].mark == "z")
+            if(this.cells[index].mark == "z")
             return [-1,"progress"]
         }
 
@@ -46,13 +46,13 @@ class Board{
 
     }
 
-     printBoard(board) {
+     printBoard() {
         for (let i = 0; i < 9; i += 3) {
             if (i % 3 === 0)
                 console.log("\t");
             let row = "| ";
             for (let j = i; j < i + 3; j++) {
-                let mark = board.cells[j].mark;
+                let mark = this.cells[j].mark;
                 if (mark != "z")
                     row += mark + " | ";
                 else

@@ -16,5 +16,6 @@ class ContactInfo {
         return new ContactInfo(type,value);
     }
 
+
 }  
 module.exports = ContactInfo

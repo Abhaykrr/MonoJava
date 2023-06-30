@@ -45,7 +45,7 @@ class Game{
          
                this.board.printBoard(this.board)
        
-               let [mark,state] = this.board.analyseResult(this.board)
+               let [mark,state] = this.board.analyseResult();
         
                if(state == "win"){
                    this.isActive = false;

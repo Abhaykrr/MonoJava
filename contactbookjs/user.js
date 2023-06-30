@@ -1,5 +1,6 @@
 const Contact = require("./contact")
 const ContactInfo = require("./contactInfo")
+const Validation = require("./validation")
 
 class User {
     static allUser = []
@@ -11,18 +12,8 @@ class User {
         this.contacts = []
     }
 
-    static properStringFormat(data){
-        if(typeof data != "string")
-         throw new Error("Enter type of String Only");
-    }
-
-    static properNumberFormat(data){
-        if(typeof data != "number")
-         throw new Error("Enter type of Number Only");
-    }
-
     static findUser(username) {
-        this.properStringFormat(username);
+        Validation.checkString(username);
 
         for (let index = 0; index < User.allUser.length; index++) {
             if (User.allUser[index].username == username) {
@@ -35,8 +26,9 @@ class User {
 
     static newAdmin(name, username) {
        
-        this.properStringFormat(name);
-        this.properStringFormat(username);
+        Validation.checkString(name);
+        Validation.checkString(username);
+
 
         let [isUserExist, indexOfUserFound] = User.findUser(username)
         if (isUserExist) {
@@ -47,8 +39,8 @@ class User {
         return admin
     }
     newUser(name, username) {
-        User.properStringFormat(name);
-        User.properStringFormat(username);
+        Validation.checkString(name);
+        Validation.checkString(username);
         
 
         if (!this.isAdmin) {
@@ -72,8 +64,10 @@ class User {
 
     updateUser(username, parameter, newValue) {
 
-        User.properStringFormat(username);
-        User.properStringFormat(newValue);
+        Validation.checkString(newValue);
+        Validation.checkString(username);
+        Validation.checkString(parameter);
+
 
         if (!this.isAdmin) {
             throw new Error("Unauthorized")
@@ -93,12 +87,12 @@ class User {
         }
     }
     updateName(newName) {
-        User.properStringFormat(newName);
+        Validation.checkString(newName);
 
         this.name = newName
     }
     updateUsername(newUsername) {
-        User.properStringFormat(newUsername)
+        Validation.checkString(newUsername);
 
         let [isUserExist, indexOfUserFound] = User.findUser(newUsername)
         if (isUserExist) {
@@ -108,7 +102,7 @@ class User {
     }
     deleteUser(username) {
 
-        User.properStringFormat(username)
+        Validation.checkString(username);
 
         if (!this.isAdmin) {
             throw new Error("Unauthorized")
@@ -124,35 +118,46 @@ class User {
 // --------------------------------------------------------------------------------------
 //                                   Contacts
 // ______________________________________________________________________________________
-    findContact(cName) {
-        for (let index = 0; index < this.contacts.length; index++) {
-            if (this.contacts[index].cName == cName) {
-                return [true, index]
+
+        getContact(cName) {
+            for (let index = 0; index < this.contacts.length; index++) {
+                if (this.contacts[index].cName == cName) {
+                    return this.contacts[index];
+                }
             }
-        }
-        return [false, -1]
-
-    }
-    newContact(cName) {
-        User.properStringFormat(cName);
-
-        if (this.isAdmin){
-            throw new Error("Admin Cannot Create Contacts")
-        }
-        let [isContactExist, indexOfContact] = this.findContact(cName)
-        if (isContactExist) {
-            throw new Error("Contact Already Exist")
+            throw new Error(`${cName} is not a conatct of ${this.name}`)
+          
         }
 
-        const newContact = Contact.newContact(cName)
-        this.contacts.push(newContact)
-        return newContact
-    }
+        findContact(cName) {
+            for (let index = 0; index < this.contacts.length; index++) {
+                if (this.contacts[index].cName == cName) {
+                    return [true, index]
+                }
+            }
+            return [false, -1]
+
+        }
+        newContact(cName) {
+            Validation.checkString(cName);
+
+            if (this.isAdmin){
+                throw new Error("Admin Cannot Create Contacts")
+            }
+            let [isContactExist, indexOfContact] = this.findContact(cName)
+            if (isContactExist) {
+                throw new Error("Contact Already Exist")
+            }
+
+            const newContact = Contact.newContact(cName)
+            this.contacts.push(newContact)
+            return newContact
+        }
 
     updateContact(cName, newContactName){
 
-        User.properStringFormat(cName);
-        User.properStringFormat(newContactName);
+        Validation.checkString(cName);
+        Validation.checkString(newContactName);
 
         if (this.isAdmin){
             throw new Error("Admin Cannot Update Contacts")
@@ -168,7 +173,7 @@ class User {
 
     deleteContact(cName){
 
-        User.properStringFormat(cName)
+        Validation.checkString(cName);
         if (this.isAdmin){
             throw new Error("Admin Cannot Delete Contacts")
         }
@@ -180,94 +185,7 @@ class User {
 
         this.contacts.splice(indexOfContact,1)
     }
-    
-// --------------------------------------------------------------------------------------
-//                                   Contacts Info
-// ______________________________________________________________________________________
-
-    getContactInfo(type , indexOfContact){
-
-        let line = this.contacts[indexOfContact].contactInfos
-
-            for (let index = 0; index < line.length; index++) {
-                if (line[index].type == type) {
-                    return [true, index]
-                }
-            }
-            return [false, -1]
-    
-    }
-
-    addContactInfo(cName, type, value ){
-
-        User.properStringFormat(cName)
-        User.properStringFormat(type)
-        User.properNumberFormat(value)
-
-        if (this.isAdmin){
-            throw new Error("Admin Cannot Add Contact Info")
-        }
-
-        let [isContactExist, indexOfContact] = this.findContact(cName)
-        if (!isContactExist) {
-            throw new Error("Contact Does Not Exist")
-        }
-
-        let [isContactTypeExist, indexOfContactType] = this.getContactInfo(type, indexOfContact )
-        if (isContactTypeExist) {
-            throw new Error("ContactType Alread Exist")
-        }
-
-        const newInfo = ContactInfo.newContactInfo(type,value);
-        this.contacts[indexOfContact].contactInfos.push(newInfo);
-    }
-
-    deleteContactInfo(cName, type){
-
-        User.properStringFormat(cName)
-        User.properStringFormat(type)
-
-        if (this.isAdmin){
-            throw new Error("Admin Cannot Add Contact Info")
-        }
-
-        let [isContactExist, indexOfContact] = this.findContact(cName)
-        if (!isContactExist) {
-            throw new Error("Contact Does Not Exist")
-        }
-
-        let [isContactTypeExist, indexOfContactType] = this.getContactInfo(type, indexOfContact )
-        if (!isContactTypeExist) {
-            throw new Error("ContactType Does Not Exist")
-        }
-
-        this.contacts[indexOfContact].contactInfos.splice(indexOfContactType,1)
-    }
-
-
-    updateContactInfo(cName, type, value ){
-
-        User.properStringFormat(cName)
-        User.properStringFormat(type)
-        User.properNumberFormat(value)
-
-        if (this.isAdmin){
-            throw new Error("Admin Cannot Add Contact Info")
-        }
-
-        let [isContactExist, indexOfContact] = this.findContact(cName)
-        if (!isContactExist) {
-            throw new Error("Contact Does Not Exist")
-        }
-
-        let [isContactTypeExist, indexOfContactType] = this.getContactInfo(type, indexOfContact )
-        if (!isContactTypeExist) {
-            throw new Error("ContactType Doesnt Exist")
-        }
-
-        this.contacts[indexOfContact].contactInfos[indexOfContactType].value = value;
-    }
-
+ 
 
 }
 

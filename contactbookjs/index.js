@@ -16,72 +16,31 @@ try {
 
 
     admin1.updateUser("sk123", "name", "Sumit Kumar")
-    admin1.deleteUser("r123")
+    admin1.deleteUser("dk123")
+//---------------------Contact And Contact Info Crud ------------------------------------------------------
 
-    // Crud on Conatct 
-    
-     user1.newContact("a")
-     user1.newContact("b")
-     user1.newContact("c")
-     user1.newContact("d")
-     user1.newContact("e")
+      user1.newContact("Abhay");
+      user1.newContact("nik");
+      user1.newContact("sam");
 
-     user1.updateContact("b","k")
-     user1.deleteContact("c")
+      user1.updateContact("nik","bruno");
+      user1.deleteContact("sam");
 
-     // CRUD ON CONTACT INFO
+      
 
-     user1.addContactInfo("a","Home",98989)       // Add Users Conatct Info
-     user1.addContactInfo("a","Telephone",98989)
-     user1.addContactInfo("a","Mobile",98989)
-     
-     user1.updateContactInfo("a","Mobile",909090) // Update User Conatct Info
-     user1.deleteContactInfo("a","Telephone")     // Delete User Contact Info
-     
+      user1.getContact("Abhay").addContactInfo("Home",9090);
+      user1.getContact("Abhay").addContactInfo("Mobile",9090);
+      user1.getContact("Abhay").addContactInfo("Work",9090);
 
-     console.log("All Users",admin1.getAllUser());            // Display All User
-     border();
-     console.log("User 1 Details",user1);  
-     border();
-
-     console.log("User 1 All ContactInfos");              // Display Users ConatctInfo
-
-     for (let index = 0; index < user1.contacts.length; index++) {
-        console.log(user1.contacts[index]);
-     }
-     border();                         
+      
+      user1.getContact("Abhay").updateContactInfo("Work",1010);
+      user1.getContact("Abhay").deleteContactInfo("Work");
 
 
-// -----------------------------------------------------------------------------------------------
-    user2.newContact("abhay")
-    user2.newContact("bhola")
-    user2.newContact("cat")
-    user2.newContact("sam")
-    user2.newContact("nik")
-
-    user2.updateContact("bhola","kola")
-    user2.deleteContact("cat")
-
-     // CRUD ON CONTACT INFO
-
-     user2.addContactInfo("abhay","Home",98989)       // Add Users Conatct Info
-     user2.addContactInfo("abhay","Telephone",98989)
-     user2.addContactInfo("kola","Mobile",98989)
-     
-     user2.updateContactInfo("abhay","Home",101010) // Update User Conatct Info
-     user2.deleteContactInfo("abhay","Telephone")     // Delete User Contact Info
-     
-
-     console.log("ALl Users",admin1.getAllUser());            // Display All User
-     border();                         
-
-     console.log("User 2 All Details",user2);   border();                         
-     console.log("User 2 All ContactInfos");              // Display Users ConatctInfo
-
-     for (let index = 0; index < user2.contacts.length; index++) {
-        console.log(user2.contacts[index]);
-     }
-
+      console.log(user1);
+      console.log(user1.getContact("Abhay").getAllContactInfos());
+      user1.getContact("Abhay").deleteAllConatctInfo();
+   
 
 
 
@@ -90,8 +49,4 @@ try {
     console.log(error.message)
 }
 
-function border(){
-
-    console.log(`/\/\//\/\//\/\//\/\//\/\//\/\//\/\//\/\//\/\/`);
-}
 
