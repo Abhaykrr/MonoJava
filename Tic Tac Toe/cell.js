@@ -7,11 +7,15 @@ class Cell{
         return new Cell("z")
     }
 
-    isMarked(cell){
-        if(this.mark !=z)
-         return true;
-
+    isMarked(){
+        if(this.mark =="z")
          return false;
+
+         return true;
+    }
+
+    markCell(symbol){
+        this.mark = symbol
     }
 }
 module.exports = Cell

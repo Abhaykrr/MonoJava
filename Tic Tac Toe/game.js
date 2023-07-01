@@ -36,14 +36,14 @@ class Game{
             if(cellNo<0 || cellNo>8)
             throw new Error("Not proper cell location")
 
-            if(this.board.cells[cellNo].mark !="z")
+            if(this.board.cells[cellNo].isMarked())
              throw new Error("Cell Alredy marked")
 
            
-               this.board.cells[cellNo].mark = currPlayer.symbol
+               this.board.cells[cellNo].markCell(currPlayer.symbol); 
         
          
-               this.board.printBoard(this.board)
+               this.board.printBoard()
        
                let [mark,state] = this.board.analyseResult();
         
@@ -64,21 +64,20 @@ class Game{
                }
 
 
-       
-               console.log("Game in ",state ,"State");
-               console.log("Turn : ",this.turn+1, ` ${currPlayer.name}`);
                this.turn ++;
+               console.log("Game in ",state ,"State");
+               return `Turn : ${this.turn}  ${currPlayer.name}`;
+              
 
 
 
                
         } catch (error) {
            
-            console.log(error.message);
+            return error.message
            
         }
 
-        return ""
         
     }
 }
