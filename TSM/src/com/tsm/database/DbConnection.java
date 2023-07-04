@@ -116,6 +116,8 @@ public class DbConnection {
 	 
 	 void addDepartment() {
 		 
+//		 Department dep = new Department(50, "IT", "MUMBAI");
+		 
 		 try {
 			 String query = "INSERT INTO DEPARTMENT VALUES(DEFAULT,?,?)";
 			 PreparedStatement preparedStatement = connection.prepareStatement(query);
@@ -127,6 +129,10 @@ public class DbConnection {
 			 
 			 preparedStatement.setString(1, dname);
 			 preparedStatement.setString(2, loc);
+			 
+//			 preparedStatement.setString(1, dep.getDName());
+//			 preparedStatement.setString(2, dep.getLoc());
+			 
 			 preparedStatement.executeUpdate();
 			 
 			 System.out.println("New Department Added \n");
