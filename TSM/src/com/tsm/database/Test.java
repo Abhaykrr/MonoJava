@@ -8,7 +8,7 @@ public class Test {
 		Scanner scanner = new Scanner(System.in);
 		DbConnection dbConnection = DbConnection.getConnection();
 		
-		DbConnection.createCompanyDb();
+//		DbConnection.createCompanyDb();
 		DbConnection.createDepartmentTable();
 		DbConnection.createEmployeeTable();
 		dbConnection.connect();

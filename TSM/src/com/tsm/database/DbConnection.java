@@ -36,30 +36,6 @@ public class DbConnection {
 	        }
 	}
 	
-	 static void createCompanyDb() {
-        try {
-        	connection = DriverManager.getConnection(url,username,password);
-        	
-        	Statement statement = connection.createStatement();
-        	
-        
-
-            String createDbQuery = "CREATE DATABASE IF NOT EXISTS " + DB_NAME;
-            int row = statement.executeUpdate(createDbQuery);
-    
-            if(row>0)
-                System.out.println("COMPANY database created successfully.");
-            else
-            	System.out.println("COMPANY database already exists");
-            
-            statement.close();
-            connection.close();
-
-        } catch (SQLException e) {
-            System.out.println("Failed to create company database. Error: " + e.getMessage());
-        }
-    }
-	 
 	 static void createDepartmentTable() {
 		 
 		 try {
